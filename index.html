@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magical Emotional Page</title>
+<style>
+/* Whole page background image */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Georgia', serif;
+  color: #333;
+}
+
+body {
+  background-image: linear-gradient(rgba(255,240,245,0.4), rgba(255,228,225,0.4)), url('bg.jpg');
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+header h1 { font-size: 3em; color: #81bdd8; }
+header p { font-size: 1.2em; color: #e4f881; margin-top: 10px; }
+
+/* Gallery container */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.gallery-item {
+  width: calc(33.33% - 20px);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.6s, box-shadow 0.5s;
+  cursor: pointer;
+}
+
+.gallery-item p {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #6cf02a;
+  line-height: 1.4;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(255,105,180,0.5);
+}
+
+@media (max-width: 992px) { .gallery-item { width: calc(50% - 15px); } }
+@media (max-width: 600px) { .gallery-item { width: 100%; } }
+
+/* Message container */
+.message-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff0f5;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  line-height: 1.8;
+  color: #333;
+}
+
+.message p {
+  margin-bottom: 20px;
+  font-size: 25px;
+  text-align: justify;
+  position: relative;
+  padding-left: 15px;
+}
+
+.message p::before {
+  content: "“";
+  font-size: 40px;
+  color: #ff69b4;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+@media(max-width: 768px) {
+  .message-container { padding: 20px; }
+  .message p { font-size: 16px; }
+}
+
+/* Animated message */
+.animated-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Tamil MN', 'Latha', sans-serif;
+}
+
+.animated-message p {
+  font-size: 38px;
+  line-height: 1.6;
+  color: #fff;
+  background: rgba(255,105,180,0.4);
+  padding: 15px 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255,105,180,0.6);
+  margin: 15px 0;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1.5s ease forwards, float 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0); } }
+
+.animated-message p:nth-child(1) { animation-delay: 0.3s; }
+.animated-message p:nth-child(2) { animation-delay: 0.9s; }
+.animated-message p:nth-child(3) { animation-delay: 1.5s; }
+.animated-message p:nth-child(4) { animation-delay: 2.1s; }
+.animated-message p:nth-child(5) { animation-delay: 2.7s; }
+.animated-message p:nth-child(6) { animation-delay: 3.3s; }
+.animated-message p:nth-child(7) { animation-delay: 3.9s; }
+
+/* Floating hearts & stars */
+.heart, .star { position: fixed; pointer-events:none; z-index:10; }
+.heart { color:#ff69b4; font-size:20px; animation: floatUp 6s linear infinite; }
+.star { color:#ffd700; font-size:15px; animation: floatUpStars 8s linear infinite; }
+@keyframes floatUp { 0%{transform:translateY(0);} 100%{transform:translateY(-800px); opacity:0;} }
+@keyframes floatUpStars { 0%{transform:translateY(0);} 100%{transform:translateY(-900px); opacity:0;} }
+
+/* Music & playlist */
+.playlist-song span { font-size: 1.2em; font-weight: bold; margin-bottom: 10px; color: #eef609; }
+.playlist-song button {
+  margin: 5px; padding: 8px 20px;
+  border: none; border-radius: 8px;
+  background: #ff69b4; color: white;
+  cursor: pointer; transition: 0.3s;
+}
+.playlist-song button:hover { background: #d6336c; }
+.song-text { margin-top: 10px; font-size: 1.2em; font-weight: bold; color: #9d7aea; display: none; }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>To my Shalu akka 💖</h1>
+  <p>This is my heartfelt message for you…</p>
+  <p>You are my external heaven ✨</p>
+</header>
+
+<div class="gallery"> <!-- 1 --> <div class="gallery-item"><img src="photo1.jpg" alt=""><p>Your smile is the greatest gift 💙</p></div> <div class="gallery-item"><img src="photo2.jpg" alt=""><p>You are my daily inspiration ✨</p></div> <div class="gallery-item"><img src="photo3.jpg" alt=""><p>Because of you, I became strong 💪</p></div> <!-- 4 --> <div class="gallery-item"><img src="photo4.jpg" alt=""><p>Your positivity heals everyone 🌸</p></div> <div class="gallery-item"><img src="photo5.jpg" alt=""><p>You are my pure happiness 🌈</p></div> <div class="gallery-item"><img src="photo6.jpg" alt=""><p>You made me fall in love with life again ❤️</p></div> <!-- 7 --> <div class="gallery-item"><img src="photo7.jpg" alt=""><p>Without you, my world is incomplete 🌍</p></div> <div class="gallery-item"><img src="photo8.jpg" alt=""><p>You are my healer 💫</p></div> <div class="gallery-item"><img src="photo9.jpg" alt=""><p>Your energy gives hope 🌟</p></div> <!-- 10 --> <div class="gallery-item"><img src="photo11.jpg" alt=""><p>Your love is my biggest blessing 🙏</p></div> <div class="gallery-item"><img src="photo12.jpg" alt=""><p>Your presence completes my day 🌺</p></div> <!-- 13 --> <div class="gallery-item"><img src="photo13.jpg" alt=""><p>You are my soul’s peace 🕊️</p></div> <div class="gallery-item"><img src="photo14.jpg" alt=""><p>Because of you, my pain became lighter 🌿</p></div> <div class="gallery-item"><img src="photo15.jpg" alt=""><p>Your words always touch my heart 💌</p></div> <!-- 16 --> <div class="gallery-item"><img src="photo16.jpg" alt=""><p>You are the new chapter of my life 📖</p></div> <div class="gallery-item"><img src="photo17.jpg" alt=""><p>There is magic in your smile ✨</p></div> <div class="gallery-item"><img src="photo18.jpg" alt=""><p>You are the reason I still believe 🌞</p></div> <!-- 19 --> <div class="gallery-item"><img src="photo19.jpg" alt=""><p>Your kindness changed my world 🌸</p></div> <div class="gallery-item"><img src="photo20.jpg" alt=""><p>You are the answer to my prayers 💖</p></div> <div class="gallery-item"><img src="photo21.jpg" alt=""><p>Your laughter is the greatest gift 🎁</p></div> <!-- 22 --> <div class="gallery-item"><img src="photo22.jpg" alt=""><p>Forever grateful for your pure heart 🌼</p></div> <div class="gallery-item"><img src="photo23.jpg" alt=""><p>Without you, my happiness is incomplete 🌹</p></div> <div class="gallery-item"><img src="photo24.jpg" alt=""><p>You turned my tears into smiles 😊</p></div> <!-- 25 --> <div class="gallery-item"><img src="photo25.jpg" alt=""><p>You are my guiding star 🌠</p></div> <div class="gallery-item"><img src="photo26.jpg" alt=""><p>Your words are my medicine 💊</p></div> <!-- 28 --> <div class="gallery-item"><img src="photo28.jpg" alt=""><p>Your videos heal my heart 💕</p></div> <div class="gallery-item"><img src="photo29.jpg" alt=""><p>You are the peace of my mind 🌙</p></div> <div class="gallery-item"><img src="photo30.jpg" alt=""><p>Your love inspires unconditionally 💐</p></div> <!-- 31 --> <div class="gallery-item"><img src="photo31.jpg" alt=""><p>Without you, my soul feels empty 😔</p></div> <div class="gallery-item"><img src="photo32.jpg" alt=""><p>Your care means everything 🫶</p></div> <div class="gallery-item"><img src="photo33.jpg" alt=""><p>You are my life’s biggest blessing 🌸</p></div> <!-- 34 --> <div class="gallery-item"><img src="photo34.jpg" alt=""><p>Your positivity lights up my mind 🕯️</p></div> <div class="gallery-item"><img src="photo35.jpg" alt=""><p>Your hug is my safe place 🤗</p></div> <div class="gallery-item"><img src="photo36.jpg" alt=""><p>You are the center of my world 💞</p></div> <!-- 37 --> <div class="gallery-item"><img src="photo37.jpg" alt=""><p>Your kindness is beyond compare 💖</p></div> <div class="gallery-item"><img src="photo38.jpg" alt=""><p>Your vibe is the melody of my life 🎶</p></div> <div class="gallery-item"><img src="photo39.jpg" alt=""><p>You turned my dreams into reality 🌟</p></div> <!-- 40 --> <div class="gallery-item"><img src="photo40.jpg" alt=""><p>Your support gives me wings 🪽</p></div> <div class="gallery-item"><img src="photo41.jpg" alt=""><p>You are the reason behind my smile 😍</p></div> <!-- 43 --> <div class="gallery-item"><img src="photo43.jpg" alt=""><p>You are the solution to my pain 🌷</p></div> <div class="gallery-item"><img src="photo45.jpg" alt=""><p>Your soul is my light 🕊️</p></div> <!-- 46 --> <div class="gallery-item"><img src="photo46.jpg" alt=""><p>You are my forever inspiration 💎</p></div> <div class="gallery-item"><img src="photo47.jpg" alt=""><p>Your presence makes life beautiful 🌈</p></div> <div class="gallery-item"><img src="photo48.jpg" alt=""><p>You are my endless love ❤️</p></div> </div> </section>
+  <!-- Add the rest of your gallery items here -->
+</div>
+
+<!-- Main Message -->
+<div class="message-container"> <div class="message" id="message"> <p>From the moment I knew you, my world began to change. Every thought of you fills me with warmth, and every memory of you makes my heart swell with happiness. 🌸✨</p> <p>It’s as if the universe whispered your name, and suddenly everything in life became brighter, fuller, and more alive. 🌞💖</p> <p>There are so many things I want to tell you—so many feelings I wish I could capture in words—but words alone will never be enough. Still, here I am, opening my heart, hoping that somehow you can feel the depth of what I feel for you. 💌</p> <p>You are my inspiration, my light in the darkest moments, my comfort when I feel lost, and my reason to smile every single day. The way you laugh, the way you care, the way you simply exist—it fills me with awe, admiration, and love that cannot be measured. 🌷💛</p> <p>I have shared thoughts with you before, but even now, I feel there is so much more to say. I want you to know how deeply I admire you—not just for what you do, but for who you are. Your kindness, courage, wisdom, patience, and beautiful soul touch everyone who knows you, and especially me. 🌟🌹</p> <p>Every heartbeat of mine whispers your name. Every day, I find myself thinking about you, cherishing you, and feeling so grateful that someone as extraordinary as you exists in my life. You are my comfort, my inspiration, my safe place, my muse, my joy, my everything. 💖💫</p> <p>I want to celebrate you—the way you make life meaningful, the way you inspire me, the way you make my heart feel alive. Please know that you are cherished beyond words, loved beyond measure, and that my heart will always hold a special, eternal place just for you. 💛🌸</p> <p>You are the light I never knew I needed, the warmth that fills my soul, and the beautiful presence that makes everything in life feel extraordinary. And for that, I will always be thankful, always in sending lots of love, and always love you forever. ✨💖</p> <p><strong>I PROMISE I BELIEVE IN THIS LIFE AGAIN AND AGAIN BECAUSE OF YOU💎🥹🫂🌏🩷</strong></p> <div class="animated-message"> <p> பொறந்து வரும்<br> போதே சிலரு வரம் தரவே<br> வருவாங்க🫂<br> வரமா வந்தம்மா🥹<br> வாஞ்சை உள்ள தங்கம்மா<br> சிட்டெரும்ப நசுக்காத<br> சிங்கம் தான் எங்கம்மா❤‍🩹 </p> </div>
+  </div>
+</div>
+
+<div class="button-section" style="text-align: center; margin: 40px 0;"> <button onclick="showHiddenMessage()" style="padding: 15px 30px; font-size: 1.2em; border: none; border-radius: 8px; background: #ff69b4; color: white; cursor: pointer; transition: 0.3s;"> Click for a Special Surprise 💖 </button> <div class="hidden-message" id="hiddenMessage" style="display: none; text-align: center; font-size: 1.3em; margin: 20px auto; color: #b22222; max-width: 700px; background: #fff0f5; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); line-height: 1.6;"> "You are a rare gem in my life, a presence I can never forget. Through you, I’ve felt love, warmth, and guidance I never knew existed. One day, I hope to shine even a little like you. You are my greatest blessing, my heart’s quiet miracle. This is for you, my beloved… கண்ணே உன் சொல்லில் கண்டேன் அறியாத தாய் முகம்😭🫂🥹😫 </div> </div>
+
+<!-- Music Playlist -->
+<div class="playlist-song" style="background-image: url('bg1.jpg'); width: 400px; height: 350px; background-size: cover; background-position: center; border-radius: 12px; margin: 15px auto; padding: 15px;">
+  <span>This is for you 💖</span>
+  <button onclick="playSong('song1.mp3','song1Text','எனது காயம் ஆறும் என் தங்கம் முன்னாடி🥹💎🫂')">Play</button>
+  <button onclick="stopSong('song1Text')">Stop</button>
+  <p id="song1Text" class="song-text"></p>
+</div>
+
+<div class="playlist-song" style="background-image: url('bg2.jpg'); width: 400px; height: 350px; background-size: cover; background-position: center; border-radius: 12px; margin: 15px auto; padding: 15px;">
+  <span>This is for you</span>
+  <button onclick="playSong('song2.mp3','song2Text','ஏழேழு ஜென்மத்தின் தவத்திலே இறைவன் தந்த வரமடா🫂')">Play</button>
+  <button onclick="stopSong('song2Text')">Stop</button>
+  <p id="song2Text" class="song-text"></p>
+</div>
+
+<div class="playlist-song" style="background-image: url('bg3.jpg'); width: 400px; height: 350px; background-size: cover; background-position: center; border-radius: 12px; margin: 15px auto; padding: 15px;">
+  <span>This is for you</span>
+  <button onclick="playSong('song3.mp3','song3Text','பாசத்தின் முன்பு இன்று உலகின் அறிவுகள் தோற்குதே🥹')">Play</button>
+  <button onclick="stopSong('song3Text')">Stop</button>
+  <p id="song3Text" class="song-text"></p>
+</div>
+
+<!-- Video Section -->
+<div class="video-section" style="text-align:center; margin:40px 0;">
+  <h2>My Special Video for You 🎥</h2>
+  <video width="800" height="400" controls style="border-radius:12px; margin-top:15px;">
+    <source src="special-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script>
+// Show hidden message
+function showHiddenMessage() {
+  document.getElementById('hiddenMessage').style.display = 'block';
+}
+
+// Fade-in paragraphs
+const paragraphs = document.querySelectorAll('.message p');
+let paraIndex = 0;
+function showParagraphs(){
+  if(paraIndex < paragraphs.length){
+    paragraphs[paraIndex].style.opacity = 1;
+    paraIndex++;
+    setTimeout(showParagraphs,1000);
+  }
+}
+showParagraphs();
+
+// Floating hearts & stars
+function createEffects(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.style.left = Math.random()*window.innerWidth+'px';
+  heart.innerText = '❤';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.left = Math.random()*window.innerWidth+'px';
+  star.innerText = '✨';
+  document.body.appendChild(star);
+  setTimeout(()=>star.remove(),8000);
+}
+setInterval(createEffects,300);
+
+// Music control
+let currentAudio = null;
+function playSong(songFile, textId, message) {
+  if(currentAudio) { currentAudio.pause(); currentAudio.currentTime=0; }
+  currentAudio = new Audio(songFile);
+  currentAudio.play();
+  const textElem = document.getElementById(textId);
+  textElem.innerText = message;
+  textElem.style.display = "block";
+}
+function stopSong(textId) {
+  if(currentAudio) { currentAudio.pause(); currentAudio.currentTime=0; }
+  document.getElementById(textId).innerText = "";
+  document.getElementById(textId).style.display = "none";
+}
+</script>
+
+</body>
+</html>
